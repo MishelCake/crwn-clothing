@@ -8,6 +8,7 @@ const config = {
   authDomain: "crwn-db-2a300.firebaseapp.com",
 
   projectId: "crwn-db-2a300",
+  databaseURL: 'https://crwn-db-2a300.firebaseio.com',
 
   storageBucket: "crwn-db-2a300.appspot.com",
 
@@ -18,6 +19,8 @@ const config = {
   measurementId: "G-DG3SZHMB6E",
 };
 
+firebase.initializeApp(config);
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   //if user does not exist return
   if (!userAuth) return;
@@ -27,7 +30,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   //getting the snapshot of userRef
   const snapShot = await userRef.get();
-
 
   //if snapShot does not exist create a new user
   if (!snapShot.exists) {
@@ -47,8 +49,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
-
-firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

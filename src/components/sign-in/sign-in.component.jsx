@@ -5,7 +5,7 @@ import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.styles.scss";
 
-class SingIn extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,9 +25,6 @@ class SingIn extends Component {
     } catch (error) {
       console.log(error);
     }
-
-
-    
   };
 
   handleChange = (event) => {
@@ -55,9 +52,9 @@ class SingIn extends Component {
             name="password"
             type='password'
             value={this.state.password}
-            required
             handleChange={this.handleChange}
             label="password"
+            required
           />
           <div className="buttons">
             <CustomButton type="submit">Sign in</CustomButton>
@@ -71,4 +68,4 @@ class SingIn extends Component {
   }
 }
 
-export default SingIn;
+export default SignIn;
